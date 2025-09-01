@@ -1,10 +1,265 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My First CI/CD Deployment</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yedivila Jagadeesh - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2L6U0hT6Yh8lE8F4A1g7C/wA7L66j/c1816A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b1a29;
+            color: #d1d5db;
+        }
+        .sidebar {
+            width: 280px;
+            background-color: #0d121c;
+            border-right: 1px solid #1f2937;
+            transition: all 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: 60px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 50;
+                border-bottom: 1px solid #1f2937;
+                border-right: none;
+            }
+            .main-content {
+                margin-left: 0;
+                padding-top: 80px;
+            }
+        }
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        .profile-img {
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+            border: 4px solid #3b82f6;
+            object-fit: cover;
+        }
+        .social-icons a {
+            transition: transform 0.2s ease;
+        }
+        .social-icons a:hover {
+            transform: scale(1.1);
+            color: #3b82f6;
+        }
+        .nav-link {
+            transition: all 0.2s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            background-color: #1f2937;
+            color: #3b82f6;
+            border-radius: 9999px;
+            padding-left: 1.5rem;
+        }
+        .card {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .scroll-target {
+            scroll-margin-top: 2rem;
+        }
+    </style>
 </head>
-<body>
-  <h1>Hello, Jagadeesh 🚀</h1>
-  <p>This site is deployed with GitHub Actions!</p>
+<body class="flex flex-col md:flex-row">
+
+    <!-- Sidebar (Fixed) -->
+    <aside class="sidebar fixed top-0 left-0 h-full p-6 hidden md:flex flex-col items-center">
+        <div class="mt-8 flex flex-col items-center text-center">
+            <div class="mb-4">
+                <img src="https://placehold.co/120x120/1e293b/a7b3bf?text=YJ" alt="Yedivila Jagadeesh" class="profile-img">
+            </div>
+            <h1 class="text-2xl font-bold text-gray-100">Yedivila Jagadeesh</h1>
+            <p class="text-sm font-light text-gray-400">Frontend Developer</p>
+        </div>
+
+        <div class="mt-8 social-icons flex space-x-4 text-xl">
+            <a href="https://github.com" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+            <a href="mailto:yedivilajagadeesh@gmail.com" class="text-gray-400 hover:text-white"><i class="fa fa-envelope"></i></a>
+        </div>
+
+        <nav class="mt-12 w-full text-lg">
+            <ul class="space-y-2">
+                <li><a href="#about" class="nav-link flex items-center p-3 text-gray-400 hover:text-blue-500">
+                    <i class="fa-solid fa-user-circle mr-3 w-5"></i><span>About</span></a></li>
+                <li><a href="#skills" class="nav-link flex items-center p-3 text-gray-400 hover:text-blue-500">
+                    <i class="fa-solid fa-code mr-3 w-5"></i><span>Skills</span></a></li>
+                <li><a href="#experience" class="nav-link flex items-center p-3 text-gray-400 hover:text-blue-500">
+                    <i class="fa-solid fa-briefcase mr-3 w-5"></i><span>Experience</span></a></li>
+                <li><a href="#education" class="nav-link flex items-center p-3 text-gray-400 hover:text-blue-500">
+                    <i class="fa-solid fa-graduation-cap mr-3 w-5"></i><span>Education</span></a></li>
+                <li><a href="#contact" class="nav-link flex items-center p-3 text-gray-400 hover:text-blue-500">
+                    <i class="fa-solid fa-address-card mr-3 w-5"></i><span>Contact</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-content flex-1 px-4 sm:px-6 lg:px-8 py-10 md:py-20">
+        <!-- Hero/About Section -->
+        <section id="hero" class="mb-16">
+            <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-12">
+                <div class="hidden md:block">
+                    <img src="https://placehold.co/250x350/1e293b/a7b3bf?text=Profile+Photo" alt="Yedivila Jagadeesh" class="rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white">Yedivila Jagadeesh</h2>
+                    <h3 class="text-xl md:text-2xl font-medium text-gray-300 mt-2">Frontend Developer</h3>
+                    <p class="mt-6 text-gray-400 leading-relaxed max-w-2xl">
+                        As a dedicated frontend developer with a strong background in IT, I am passionate about crafting seamless user interfaces and enhancing the overall user experience. With expertise in HTML, CSS, JavaScript, and React, I have delivered projects that significantly boosted user engagement and conversion rates.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-4">
+                        <a href="mailto:yedivilajagadeesh@gmail.com" class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition">Get in Touch</a>
+                        <a href="#contact" class="border border-gray-600 text-gray-300 px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="scroll-target py-16">
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-600 pb-2 mb-8 inline-block">About Me</h2>
+            <p class="text-gray-400 leading-relaxed">
+                I'm a dedicated frontend developer with over 4 years of experience, passionate about building intuitive and visually appealing user interfaces. My journey in IT has equipped me with a strong foundation in modern web technologies, allowing me to translate complex requirements into elegant and user-friendly solutions. I thrive on creating seamless digital experiences and am always eager to learn and adapt to new challenges.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="scroll-target py-16">
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-600 pb-2 mb-8 inline-block">Skills</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="card p-4 rounded-lg flex flex-col items-center">
+                    <i class="devicon-react-original text-blue-500 text-5xl mb-2"></i>
+                    <span class="text-gray-300 font-medium">React JS</span>
+                </div>
+                <div class="card p-4 rounded-lg flex flex-col items-center">
+                    <i class="devicon-nextjs-plain text-gray-300 text-5xl mb-2"></i>
+                    <span class="text-gray-300 font-medium">Next.js</span>
+                </div>
+                <div class="card p-4 rounded-lg flex flex-col items-center">
+                    <i class="devicon-javascript-plain text-yellow-500 text-5xl mb-2"></i>
+                    <span class="text-gray-300 font-medium">JavaScript</span>
+                </div>
+                <div class="card p-4 rounded-lg flex flex-col items-center">
+                    <i class="devicon-html5-plain-wordmark text-orange-500 text-5xl mb-2"></i>
+                    <span class="text-gray-300 font-medium">HTML5</span>
+                </div>
+                <div class="card p-4 rounded-lg flex flex-col items-center">
+                    <i class="devicon-css3-plain-wordmark text-blue-500 text-5xl mb-2"></i>
+                    <span class="text-gray-300 font-medium">CSS3</span>
+                </div>
+                <div class="card p-4 rounded-lg flex flex-col items-center">
+                    <i class="devicon-redux-original text-purple-500 text-5xl mb-2"></i>
+                    <span class="text-gray-300 font-medium">Redux</span>
+                </div>
+                <div class="card p-4 rounded-lg flex flex-col items-center">
+                    <i class="devicon-bootstrap-plain-wordmark text-purple-600 text-5xl mb-2"></i>
+                    <span class="text-gray-300 font-medium">Bootstrap</span>
+                </div>
+                <div class="card p-4 rounded-lg flex flex-col items-center">
+                    <i class="devicon-git-plain-wordmark text-orange-600 text-5xl mb-2"></i>
+                    <span class="text-gray-300 font-medium">Git</span>
+                </div>
+                <div class="card p-4 rounded-lg flex flex-col items-center">
+                    <i class="devicon-mongodb-plain-wordmark text-green-600 text-5xl mb-2"></i>
+                    <span class="text-gray-300 font-medium">MongoDB</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="scroll-target py-16">
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-600 pb-2 mb-8 inline-block">Work Experience</h2>
+            <div class="space-y-8">
+                <!-- Job 1 -->
+                <div class="card p-6 rounded-lg">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-semibold text-gray-100">Frontend Developer at Nihilent</h3>
+                        <span class="text-sm text-gray-400">JUL 2024 - Present</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-4">Worked on a custom web application for a medical implant distributor. The application included modules for Surgery Tracker, Sales, Logistics, and Analytics. I also led the transition from React.js to Next.js to improve performance and SEO.</p>
+                    <p class="text-gray-300 font-medium">Key Responsibilities:</p>
+                    <ul class="list-disc list-inside text-gray-400 mt-2 space-y-1">
+                        <li>Designed and developed user-friendly UI components using HTML, CSS, React.js, Bootstrap, and Next.js.</li>
+                        <li>Implemented server-side rendering (SSR) and static site generation (SSG) with Next.js.</li>
+                        <li>Integrated APIs for seamless communication between the front and back end.</li>
+                        <li>Managed MongoDB schemas for efficient database structure.</li>
+                        <li>Applied form validation to improve data accuracy.</li>
+                    </ul>
+                </div>
+                <!-- Job 2 -->
+                <div class="card p-6 rounded-lg">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-semibold text-gray-100">Frontend Developer at BYJUS</h3>
+                        <span class="text-sm text-gray-400">MAR 2022 - MAY 2024</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-4">Contributed to the development of a course recommendation chatbot integrated within the BYJUS study application, helping students select courses based on their needs.</p>
+                    <p class="text-gray-300 font-medium">Key Responsibilities:</p>
+                    <ul class="list-disc list-inside text-gray-400 mt-2 space-y-1">
+                        <li>Designed and implemented the chatbot interface using React.js.</li>
+                        <li>Created the conversational flow and interaction patterns for a smooth user experience.</li>
+                        <li>Managed real-time interactions and chatbot state using Redux.</li>
+                        <li>Worked with the backend team to display dynamic course information and ensure real-time responses.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="scroll-target py-16">
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-600 pb-2 mb-8 inline-block">Education</h2>
+            <div class="space-y-6">
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-100">Master of Business Administration</h3>
+                    <p class="text-gray-400 mt-1">Sri Venkateswara College of Engineering Technology (Autonomous), Chittoor</p>
+                    <p class="text-sm text-gray-500 mt-1">2018 - 2020</p>
+                </div>
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-100">Bachelor of Business Administration</h3>
+                    <p class="text-gray-400 mt-1">Sri Venkateswara University</p>
+                    <p class="text-sm text-gray-500 mt-1">2015 - 2018</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="scroll-target py-16">
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-600 pb-2 mb-8 inline-block">Contact</h2>
+            <div class="space-y-6 text-gray-400">
+                <div class="flex items-center space-x-4">
+                    <i class="fa fa-envelope text-blue-500 text-xl"></i>
+                    <span>yedivilajagadeesh@gmail.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fa fa-phone text-blue-500 text-xl"></i>
+                    <span>+91 6303400360</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fa fa-map-marker-alt text-blue-500 text-xl"></i>
+                    <span>Madanapalle, Tekulapalyam, Chittoor Dist., Andhra Pradesh.</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
 </body>
 </html>
