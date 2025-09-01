@@ -1,3 +1,24 @@
+# name: Deploy static site
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+
+#       - name: Deploy to GitHub Pages
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: ./
+#           user_name: github-actions[bot]
+#           user_email: github-actions[bot]@users.noreply.github.com
 name: Deploy static site
 
 on:
@@ -16,6 +37,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: .
+          exclude_assets: '.github,README.md'
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
